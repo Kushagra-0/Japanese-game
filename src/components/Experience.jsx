@@ -2,8 +2,18 @@ import { OrbitControls, Cylinder, MeshReflectorMaterial, Text3D } from "@react-t
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
 import { Tori } from "./Tori";
 import { kanas } from "../constants";
+import { useGameStore } from "../store";
+import { KanaSpots } from "./KanaSpots";
+import { useEffect } from "react";
 
 export const Experience = () => {
+
+  const startGame = useGameStore((state) => state.startGame);
+
+  useEffect(() => {
+    startGame();
+  }, []);
+
   return (
     <>
       <OrbitControls />
@@ -63,12 +73,8 @@ export const Experience = () => {
 
       {/* KANA */}
 
-      <Text3D
-        font={"./fonts/Noto Sans JP ExtraBold_Regular.json"}
-        size={0.82}>
-        {kanas[0].character.hiragana}
-        <meshNormalMaterial />
-      </Text3D>
+      <KanaSpots />
+
       </group>
     </>
   );
