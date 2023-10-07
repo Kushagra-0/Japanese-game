@@ -5,6 +5,7 @@ import { kanas } from "../constants";
 import { useGameStore } from "../store";
 import { KanaSpots } from "./KanaSpots";
 import { useEffect } from "react";
+import { CharacterController } from "./CharacterController";
 
 export const Experience = () => {
 
@@ -70,6 +71,10 @@ export const Experience = () => {
           <meshStandardMaterial color="white" />
         </Cylinder>
       </RigidBody>
+
+      {/* CHARACTER */}
+      
+      <CharacterController/>
 
       {/* KANA */}
 
